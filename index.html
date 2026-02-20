@@ -1,33 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>UniGuide Intelligence</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Career Guidance Assistant</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="app">
-    <header>
-        <h1>UniGuide Intelligence</h1>
-        <p>Comprehensive University & Career Advisory System</p>
-    </header>
+  <div class="chat-container">
+    <div class="chat-header">
+      <h1>Career Guidance Assistant</h1>
+      <p>Professional Career Advisory for Graduates</p>
+    </div>
 
-    <div id="chatBox" class="chat-box">
-        <div class="bot">
-            Good day. I am UniGuide Intelligence.  
-            I provide detailed guidance on university courses, career paths, industry outlook, requirements, and professional development.  
-            Kindly state a course or department to begin.
-        </div>
+    <div id="chat-box" class="chat-box">
+      <div class="bot-message">
+        Welcome. I am your Career Guidance Assistant.  
+        Ask about any university course, career path, job role, requirements, salary expectations or growth opportunities.
+      </div>
     </div>
 
     <div class="input-area">
-        <input type="text" id="input" placeholder="Ask about any course...">
-        <button onclick="handleMessage()">Send</button>
+      <input type="text" id="user-input" placeholder="Ask about a course or career..." />
+      <button onclick="sendMessage()">Send</button>
     </div>
-</div>
+  </div>
 
-<script src="courses.js"></script>
-<script src="script.js"></script>
+  <script src="careerData.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

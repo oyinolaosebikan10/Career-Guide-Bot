@@ -1,81 +1,178 @@
-body {
+/* Reset */
+* {
     margin: 0;
-    font-family: 'Georgia', serif;
-    background: linear-gradient(135deg, #0F172A, #1E3A8A);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.app {
-    width: 800px;
-    height: 650px;
-    background: #ffffff;
-    border-radius: 15px;
+/* Chat container */
+.chat-container {
+    width: 90%;
+    max-width: 750px;
+    margin: 40px auto;
+    background: #ffffff; /* white base */
+    border-radius: 20px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
 }
 
-header {
-    background: #0F172A;
-    color: #ffffff;
+/* Chat header */
+.chat-header {
+    background: linear-gradient(135deg, #001F4D, #0B3D91); /* navy to deep blue */
+    color: #fff;
     padding: 20px;
     text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
-header p {
+.chat-header h1 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.chat-header p {
     font-size: 14px;
-    color: #CBD5E1;
+    font-weight: 400;
+    margin-top: 5px;
 }
 
+/* Chat box */
 .chat-box {
     flex: 1;
-    padding: 25px;
+    padding: 20px;
+    background: #f8f9fb; /* light white/grey for contrast */
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.bot, .user {
-    margin-bottom: 15px;
-    padding: 15px;
-    border-radius: 10px;
-    line-height: 1.7;
-    max-width: 85%;
+/* Messages */
+.bot-message, .user-message {
+    max-width: 75%;
+    padding: 14px 20px;
+    border-radius: 20px;
+    word-wrap: break-word;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    animation: fadeIn 0.3s ease-in-out;
 }
 
-.bot {
-    background: #F1F5F9;
-    color: #0F172A;
+.bot-message {
+    background-color: #ffffff; /* white */
+    border-left: 4px solid #0B3D91; /* deep blue accent */
+    align-self: flex-start;
+    color: #001F4D; /* navy text */
 }
 
-.user {
-    background: #1E3A8A;
-    color: #ffffff;
-    margin-left: auto;
+.user-message {
+    background: linear-gradient(135deg, #0B3D91, #001F4D); /* deep to navy */
+    color: #fff;
+    align-self: flex-end;
+    border-right: 4px solid #001F4D;
 }
 
+/* Input area */
 .input-area {
     display: flex;
+    gap: 10px;
+    padding: 15px;
+    background: #ffffff;
     border-top: 1px solid #ddd;
 }
 
-input {
+.input-area input {
     flex: 1;
-    padding: 15px;
-    border: none;
+    padding: 14px 18px;
+    border-radius: 25px;
+    border: 1px solid #0B3D91;
     outline: none;
+    font-size: 16px;
+    transition: 0.2s;
 }
 
-button {
-    padding: 15px 25px;
+.input-area input:focus {
+    border-color: #001F4D;
+}
+
+.input-area button {
+    padding: 14px 25px;
+    border-radius: 25px;
     border: none;
-    background: #0F172A;
-    color: #ffffff;
+    background: #0B3D91;
+    color: white;
+    font-weight: 600;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-button:hover {
-    background: #1E3A8A;
+.input-area button:hover {
+    background: #001F4D;
+}
+
+/* Suggestion buttons */
+.suggestion-button {
+    background-color: #0B3D91;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    padding: 8px 14px;
+    margin: 4px 3px 4px 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.suggestion-button:hover {
+    background-color: #001F4D;
+}
+
+/* Typing indicator */
+.typing {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.typing-dot {
+    width: 8px;
+    height: 8px;
+    background: #0B3D91;
+    border-radius: 50%;
+    animation: bounce 0.6s infinite alternate;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0);}
+    100% { transform: translateY(-6px);}
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .chat-container {
+        width: 95%;
+        height: 90vh;
+    }
+    .chat-box {
+        height: 70vh;
+    }
+    .chat-header h1 {
+        font-size: 20px;
+    }
+    .chat-header p {
+        font-size: 12px;
+    }
 }
